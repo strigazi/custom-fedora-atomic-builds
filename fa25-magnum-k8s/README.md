@@ -9,7 +9,7 @@ Script to build a fedora atomic 25 image with:
 
 To be used with OpenStack/Magnum.
 
-Sample image: test-strigazi-sharing.web.cern.ch/test-strigazi-sharing/fedora-atomic-25-k8s-1.4-docker-1.12.qcow2
+Sample image: http://test-strigazi-sharing.web.cern.ch/test-strigazi-sharing/fedora-atomic-25-k8s-1.4-docker-1.12.qcow2
 
 ./run.sh
 
