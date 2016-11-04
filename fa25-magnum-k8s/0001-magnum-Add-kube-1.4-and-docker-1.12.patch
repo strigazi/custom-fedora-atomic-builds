@@ -1,0 +1,48 @@
+From b0292c5f192361ae36ee759a20ac59060f7197c6 Mon Sep 17 00:00:00 2001
+From: Spyros Trigazis <strigazi@gmail.com>
+Date: Thu, 3 Nov 2016 15:51:32 +0000
+Subject: [PATCH] [magnum] Add kube 1.4 and docker 1.12
+
+---
+ fedora-atomic-docker-host.json | 4 +++-
+ kubernetes.repo                | 6 ++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+ create mode 100644 kubernetes.repo
+
+diff --git a/fedora-atomic-docker-host.json b/fedora-atomic-docker-host.json
+index 9d4abd4..685867d 100644
+--- a/fedora-atomic-docker-host.json
++++ b/fedora-atomic-docker-host.json
+@@ -1,7 +1,7 @@
+ {
+     "ref": "fedora-atomic/25/${basearch}/docker-host",
+ 
+-    "repos": ["fedora-25"],
++    "repos": ["fedora-25", "kubernetes"],
+ 
+     "selinux": true,
+ 
+@@ -24,6 +24,8 @@
+     "check-groups": { "type": "file", "filename": "group" },
+ 
+     "packages": ["atomic",
++		 "kubelet", "kubectl", "kubeadm",
++		 "etcd", "flannel",
+ 		 "glibc", "nss-altfiles", "shadow-utils",
+ 		 "sssd-client", "libsss_sudo",
+ 		 "fedora-release-atomichost",
+diff --git a/kubernetes.repo b/kubernetes.repo
+new file mode 100644
+index 0000000..49f6612
+--- /dev/null
++++ b/kubernetes.repo
+@@ -0,0 +1,6 @@
++[kubernetes]
++name=Kubernetes
++baseurl=http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
++enabled=1
++gpgcheck=0
++repo_gpgcheck=0
+-- 
+2.7.4
+
