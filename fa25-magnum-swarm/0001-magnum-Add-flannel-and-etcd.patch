@@ -1,0 +1,27 @@
+From 3fff2a83c61b975b7c275e4b8a0e1954d484109b Mon Sep 17 00:00:00 2001
+From: Spyros Trigazis <strigazi@gmail.com>
+Date: Fri, 4 Nov 2016 12:28:09 +0000
+Subject: [PATCH] [magnum] Add flannel and etcd
+
+Magnum swarm driver needs etcd and flannel.
+---
+ fedora-atomic-docker-host.json | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/fedora-atomic-docker-host.json b/fedora-atomic-docker-host.json
+index 9d4abd4..2dde494 100644
+--- a/fedora-atomic-docker-host.json
++++ b/fedora-atomic-docker-host.json
+@@ -75,7 +75,8 @@
+ 		 "oci-register-machine",
+ 		 "oci-systemd-hook",
+ 		 "mdadm",
+-		 "runc"],
++		 "runc",
++		 "etcd", "flannel"],
+ 
+     "packages-aarch64": ["grub2-efi", "ostree-grub2",
+                          "efibootmgr", "shim", "atomic-devmode"],
+-- 
+2.7.4
+
