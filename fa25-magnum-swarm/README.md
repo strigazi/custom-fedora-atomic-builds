@@ -5,4 +5,4 @@ flannel and etcd. To be used with OpenStack/Magnum.
 
 ./run.sh
 
-Sample image http://test-strigazi-sharing.web.cern.ch/test-strigazi-sharing/fedora-atomic-docker-1.12.qcow2
+Sample image http://test-strigazi-sharing.web.cern.ch/test-strigazi-sharing/fedora-atomic-25-docker-1.12.qcow2
