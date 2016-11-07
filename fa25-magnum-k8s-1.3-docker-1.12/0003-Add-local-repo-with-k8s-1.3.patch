@@ -1,0 +1,39 @@
+From 89c89b51e2448149d4b1e1619e874c625ac26d53 Mon Sep 17 00:00:00 2001
+From: Spyros Trigazis <strigazi@gmail.com>
+Date: Mon, 7 Nov 2016 11:05:11 +0000
+Subject: [PATCH 3/3] Add local repo with k8s 1.3
+
+---
+ fedora-atomic-docker-host.json | 2 +-
+ mykuberepo.repo                | 6 ++++++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+ create mode 100644 mykuberepo.repo
+
+diff --git a/fedora-atomic-docker-host.json b/fedora-atomic-docker-host.json
+index 19059a3..184db3f 100644
+--- a/fedora-atomic-docker-host.json
++++ b/fedora-atomic-docker-host.json
+@@ -1,7 +1,7 @@
+ {
+     "ref": "fedora-atomic/25/${basearch}/docker-host",
+ 
+-    "repos": ["fedora-25", "fedora-25-updates", "fedora-25-updates-testing"],
++    "repos": ["fedora-25", "fedora-25-updates", "fedora-25-updates-testing", "mykuberepo"],
+ 
+     "selinux": true,
+ 
+diff --git a/mykuberepo.repo b/mykuberepo.repo
+new file mode 100644
+index 0000000..cd7731b
+--- /dev/null
++++ b/mykuberepo.repo
+@@ -0,0 +1,6 @@
++[mykuberepo]
++name=ostree local-testing
++baseurl=file:///srv/mykuberepo/
++enabled=1
++gpgcheck=0
++metadata_expire=1d
+-- 
+2.7.4
+
