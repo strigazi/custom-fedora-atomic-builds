@@ -43,6 +43,7 @@ mkdir -p /srv/f24ah
 ostree init --repo=/srv/f24ah --mode=archive-z2
 rpm-ostree compose tree --repo=/srv/f24ah /root/fedora-atomic/fedora-atomic-docker-host.json
 
+kill -15 $(ps aux | grep trivial | grep ostree | awk '{print $2}')
 ostree trivial-httpd -d -P 9001 /srv/f24ah
 
 cd /root
