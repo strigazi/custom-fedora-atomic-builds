@@ -5,19 +5,6 @@ set -xe
 # install deps for fedora
 ../install-deps.sh
 
-# Download kubernetes 1.3 packages
-cd /root
-rm -rf /srv/mykuberepo
-mkdir -p /srv/mykuberepo
-cd /srv/mykuberepo
-KUBE_RPMS_DIR_URL="https://kojipkgs.fedoraproject.org/packages/kubernetes/1.3.0/0.2.git507d3a7.fc25/x86_64/"
-
-for PKG in $(curl -s $KUBE_RPMS_DIR_URL | grep -o ">kube.*\.rpm" | sed 's/>//') ; do 
-  curl -sSo "$PKG $KUBE_RPMS_DIR_URL$PKG" ;
-done
-
-createrepo /srv/mykuberepo
-
 # create cvmfs-ostree-integration package
 cd /root
 rm -rf /root/cvmfs-ostree-integration
@@ -69,5 +56,5 @@ FEDORA_ATOMIC_TREE_REF=$(cat /srv/f23ah/refs/heads/fedora-atomic/f23/x86_64/dock
 rm -rf /output/*
 mkdir -p /output
 
-disk-image-create fedora-atomic -o /output/fedora-atomic-23-k8s-1.22-docker-1.10.3-cvmfs
+disk-image-create fedora-atomic -o /output/fedora-atomic-23-k8s-1.2-docker-1.10.3-cvmfs
 
