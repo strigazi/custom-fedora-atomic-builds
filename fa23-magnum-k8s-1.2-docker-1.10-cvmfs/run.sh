@@ -35,7 +35,7 @@ ostree trivial-httpd -d -P 9001 /srv/f23ah
 
 cd /root
 
-git clone https://git.openstack.org/openstack/magnum
+git clone https://git.openstack.org/openstack/magnum -b stable/newton
 git clone https://git.openstack.org/openstack/diskimage-builder.git
 git clone https://git.openstack.org/openstack/dib-utils.git
 
